@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - agent
+  - wall
+  - ground
+  - target
+  - lights_green
+  - lights_orange
+  - lights_red
+  - wait
+  - symbol_X
+  - symbol_O
+  - symbol_O_Goal
+  - symbol_X_Goal
+  - sign_green
+  - sign_orange
+  - sign_red
+  - sign_red_orange
+  - line_green
+  - line_orange
+  - line_red
+  - line_red_orange
+  - lane
+  - lights_red_orange
+  - overlay
+  - nopass
+  - crossing
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - Agent
+  - Traffic Lights
+  - Lane
+  - Target
+  - No Pass
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
