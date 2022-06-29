@@ -2,8 +2,8 @@
 
 This Unity package contains work in progress on developing a heterogeneous, multiagent system that simulates traffic flow in the context of Non-Player Characters for game design. A Reinforcement Learning approch was equipped.
 
-To you use our work please cite the following paper as a reference:
-S. Makri and P. Charalambous, "Towards a multi-agent non-player character road network: a Reinforcement Learning approach", _2021 IEEE Conference on Games (CoG)_, 2021, [https://ieee-cog.org/2021/assets/papers/paper_280.pdf](https://ieee-cog.org/2021/assets/papers/paper_280.pdf).
+To use our work please cite the following paper as a reference:
+S. Makri and P. Charalambous, "Towards a multi-agent non-player character road network: a Reinforcement Learning approach," _2021 IEEE Conference on Games (CoG)_, 2021, pp. 1-5, doi: [10.1109/CoG52621.2021.9619047](https://doi.org/10.1109/CoG52621.2021.9619047).
 
 
 ### Installation
@@ -23,7 +23,7 @@ You can refer to the [ml-agents repository documentation](https://github.com/Uni
 Clone this repository.
 
 ```sh
-git clone --branch v1.0 https://github.com/CYENS/TrafficFlow.git
+git clone --branch v1.1 https://github.com/CYENS/TrafficFlow.git
 
 ```
 
@@ -50,4 +50,4 @@ You can also install these mannually by [adding the local](https://docs.unity3d.
 There are 3 scenes implemented, organised in 3 separate folders under the [`Assets`](./Assets/) folder. Pre-trained model files are provided for each environment. These are located in the respective `Models` folders.
 1. The [`Basic`](./Assets/Basic/Scenes/Basic.unity) scene, where our first experiments were carried out. A single agent crosses the traffic lights to reach its target. The lane is quite wide.
 1. A [`Lane`](./Assets/Lanes/Scenes/Lane.unity) scene, where we extended the `Basic` scene to train two agents crossing the traffic lights from opposite directions in order to reach their goal.
-1. A [`Crossroad`](./Assets/Crossroads/Scenes/Crossroad.unity) scene. Here, we have implemented two different areas. A simple crossroad intersection governed by traffic lights, and a simplified version of the same intersection with motion restricted in a line to help training. For more details you can refer to [Makri and Charalambous (2021)](https://ieee-cog.org/2021/assets/papers/paper_280.pdf).
+1. A [`Crossroad`](./Assets/Crossroads/Scenes/Crossroad.unity) scene. Here, we have implemented two different areas. A simple crossroad intersection governed by traffic lights, and a simplified version of the same intersection with motion restricted in a line to help training. For more details you can refer to [Makri and Charalambous (2021)](https://doi.org/10.1109/CoG52621.2021.9619047).
