@@ -2128,7 +2128,7 @@ MonoBehaviour:
   lawBreakMaterial: {fileID: 2100000, guid: ff14134b548ad4790809bd7ffdffbf32, type: 2}
   deviate: 0
   isTraining: 0
-  recordData: 0
+  writeResults: 0
 --- !u!4 &1574236049
 Transform:
   m_ObjectHideFlags: 0

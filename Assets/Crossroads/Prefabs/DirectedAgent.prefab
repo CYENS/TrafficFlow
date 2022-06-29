@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 576026651972601349}
   - component: {fileID: 2582197262834386439}
   - component: {fileID: 4315423939642780316}
+  - component: {fileID: 3336439523502405407}
   m_Layer: 0
   m_Name: Agent
   m_TagString: agent
@@ -548,6 +549,8 @@ MonoBehaviour:
   area: {fileID: 0}
   target: {fileID: 1077315973078785732}
   useVectorObs: 1
+  agentID: 0
+  sceneID: 0
   InitLane: {fileID: 0}
   EndLane: {fileID: 0}
   flag: 0
@@ -626,6 +629,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
   occupied: 0
+--- !u!114 &3336439523502405407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523515851320222864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e0087dfa831a2da0a2330456ae133da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentID: 0
+  sceneID: 0
+  scores: 000000000000000000000000000000000000000000000000000000000000000000000000
+  speed: 0
+  m_TargetTr: {fileID: 0}
+  m_AgentRb: {fileID: 0}
 --- !u!1 &1523523950840899852
 GameObject:
   m_ObjectHideFlags: 0

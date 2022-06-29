@@ -8,25 +8,14 @@ using System.IO;
 
 public class CrossroadCarAgent : Agent
 {
+    Profiling m_Profiling;
     public GameObject ground;
     public GameObject area;
     public GameObject target;
     public bool useVectorObs;
 
-    int m_Score_g;
-    int m_Score_a;
-    int m_Score_r;
-    int m_Score_ar;
-    int m_Score_col;
-    int m_Score_w;
-    int m_Score_np;
-    int m_Score_t;
-    int m_Step;
-
-    public string path;
-
-    int m_AgentID;
-    int m_SceneID;
+    public int agentID;
+    public int sceneID;
 
     Rigidbody m_AgentRb;
     Material m_GroundMaterial;
@@ -38,7 +27,6 @@ public class CrossroadCarAgent : Agent
     CrossroadColliders m_AgentCollider;
 
     CrossroadLane m_AgentLane;
-    // CrossroadLane m_CurrentLane;
     CrossroadLane m_TargetLane;
 
     public GameObject InitLane;
@@ -60,14 +48,15 @@ public class CrossroadCarAgent : Agent
 
     LayerMask m_DefaultMask;
 
-    // Vector3 m_Direction;
-    // Vector3 m_Normal;
-
     public float flag;
     public int episode;
 
+    int m_Steps = 0;
+
     public override void Initialize()
     {
+        m_Profiling = GetComponent<Profiling>();
+
         flag = 0;
 
         Transform root = this.transform.root;
@@ -94,11 +83,7 @@ public class CrossroadCarAgent : Agent
         m_TargetCollider =  target.transform.GetChild(0).GetComponent<CrossroadColliders>();
 
         m_AgentLane = InitLane.GetComponent<CrossroadLane>();
-        // m_CurrentLane = InitLane.GetComponent<CrossroadLane>();
         m_TargetLane = EndLane.GetComponent<CrossroadLane>();
-
-        // m_Direction = m_CurrentLane.direction;
-        // m_Normal = m_CurrentLane.normal;
 
         CrossroadLane arbitrary_lane;
         if (this.transform.GetSiblingIndex() == 0)
@@ -111,13 +96,9 @@ public class CrossroadCarAgent : Agent
             }
         }
 
-        m_AgentID = this.transform.parent.GetSiblingIndex();
-        m_SceneID = this.transform.parent.parent.GetSiblingIndex();
+        agentID = this.transform.parent.GetSiblingIndex();
+        sceneID = this.transform.parent.parent.GetSiblingIndex();
 
-        // m_AgentLane.SetDescriptors();
-        // m_TargetLane.SetDescriptors();
-
-        // m_AgentLane.SetTrainingBounds();
 
         m_AgentOffset = 0f;
         m_TargetOffset = 0f;
@@ -130,17 +111,6 @@ public class CrossroadCarAgent : Agent
         transform.GetComponent<RayPerceptionSensorComponentBase>();
         m_DefaultMask = LayerMask.GetMask("Default", "Ground",
             "Agent", "Traffic Lights", "Lane", "Target", "No Pass");
-
-        path =  "Assets/Data/scores.txt";
-        m_Score_g = 0;
-        m_Score_a = 0;
-        m_Score_r = 0;
-        m_Score_ar = 0;
-        m_Score_col = 0;
-        m_Score_w = 0;
-        m_Score_np = 0;
-        m_Score_t = 0;
-        m_Step=0;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -149,62 +119,12 @@ public class CrossroadCarAgent : Agent
         {
             // sensor.AddObservation(StepCount / (float)MaxStep);
             var dir = m_TargetTr.position - m_AgentTr.position;
-            // var sine = Vector3.Cross(dir.normalized, m_AgentTr.forward);
-            // var cosine = Vector3.Dot(dir.normalized, m_AgentTr.forward);
-            // var sine = Vector3.Cross(m_Direction,
-            //     - m_TargetLane.direction);
-            // var cosine = Vector3.Dot(m_Direction,
-            //     - m_TargetLane.direction);
-            //
-            // var deflection = Mathf.Asin(Mathf.Max(0f, Mathf.Min(1f, sine.magnitude)));
-            // if ( cosine < 0f ){
-            //     deflection += Mathf.PI/2;
-            // }
-            // if ( Vector3.Dot(sine, Vector3.up) < 0f )
-            // {
-            //     deflection *= -1f;
-            // }
-
-            // sensor.AddObservation(deflection/Mathf.PI);
-            // sensor.AddObservation(dir.magnitude);
-
 
             sensor.AddObservation(Vector3.Dot(dir, m_AgentLane.direction)
                 + Vector3.Dot(dir, m_AgentLane.normal));
-            // // sensor.AddObservation(Vector3.Dot(dir, m_Direction)
-            // //     + Vector3.Dot(dir, m_Normal));
             sensor.AddObservation(Vector3.Dot(dir, m_TargetLane.direction)
                 + Vector3.Dot(dir, m_TargetLane.normal));
 
-
-            // var disp = m_TargetTr.position - m_AgentTr.position;
-            // var dist = Mathf.Abs(Vector3.Dot(disp, m_TargetLane.direction));
-            //
-            // var targetLaneDisp = m_TargetTr.position - m_TargetLane.enter.transform.position;
-            // var targetLaneDist = Mathf.Abs(Vector3.Dot(targetLaneDisp, m_TargetLane.direction));
-            //
-            // if  (dist > targetLaneDist)
-            // {
-            //     var partialDisp = m_TargetLane.enter.transform.position - m_AgentTr.position;
-            //     var partialDist = Mathf.Abs(Vector3.Dot(partialDisp, m_TargetLane.direction));
-            //
-            //     dist = partialDist + targetLaneDist;
-            // }
-
-            // var along = Vector3.Dot(disp, m_TargetLane.direction);
-            // var offcentre = Vector3.Dot(disp, m_TargetLane.normal);
-            // var along = Vector3.Dot(disp, transform.forward);
-            // var offcentre = Vector3.Dot(disp, transform.right);
-
-            // sensor.AddObservation(dist);
-            // sensor.AddObservation(along);
-            // sensor.AddObservation(offcentre);
-
-            // sensor.AddObservation(disp.x);
-            // sensor.AddObservation(disp.z);
-
-            // sensor.AddObservation(Vector3.Dot(disp, m_AgentLane.direction) + Vector3.Dot(disp, m_AgentLane.normal));
-            // sensor.AddObservation(along + offcentre);
         }
     }
 
@@ -289,7 +209,6 @@ public class CrossroadCarAgent : Agent
         // Learn intrinsically the sense of time
         AddReward(-0.1f / MaxStep);
         MoveAgent(actionBuffers.DiscreteActions);
-        m_Step+=1;
     }
 
     void OnCollisionEnter(Collision col)
@@ -297,57 +216,56 @@ public class CrossroadCarAgent : Agent
         // Debug.Log("the agent collided with" + col.gameObject.name);
         if (col.gameObject == target.transform.GetChild(0).gameObject)
         {
-            // Associate with magnitude & deflecLayerMask mask = LayerMask.GetMask("wait");tion observations
+            // Associate with magnitude & deflection observations
             SetReward(1f);
-            m_Score_t += 1;
+            m_Profiling.IncrementTarget();
             // StartCoroutine(SwapGroundMaterial(m_Settings.goalScoredMaterial, 0.5f));
+            m_Steps = StepCount;
             EndEpisode();
         }
         else if (col.gameObject.CompareTag("lights_green"))
         {
             // Associate with tag "lights_green"
-            // LayerMask mask = m_DefaultMask - LayerMask.GetMask("No Pass");
             // StartCoroutine(DisableRayLayer(mask, 0.5f));
 
             AddReward(1f / MaxStep);
-            m_Score_g += 1;
+            m_Profiling.IncrementGreen();
             // StartCoroutine(SwapGroundMaterial(m_Settings.greenLightMaterial, 0.5f));
         }
         else if (col.gameObject.CompareTag("lights_orange"))
         {
             // Associate with tag "lights_orange"
-            // LayerMask mask = m_DefaultMask - LayerMask.GetMask("No Pass");
             // StartCoroutine(DisableRayLayer(mask, 0.5f));
 
             AddReward(-0.8f / MaxStep);
-            m_Score_a += 1;
+            m_Profiling.IncrementAmber();
             // StartCoroutine(SwapGroundMaterial(m_Settings.orangeLightMaterial, 0.5f));
         }
         else if (col.gameObject.CompareTag("lights_red"))
         {
             // Associate with tag "lights_red"
-            // LayerMask mask = m_DefaultMask - LayerMask.GetMask("No Pass");
             // StartCoroutine(DisableRayLayer(mask, 0.5f));
 
             SetReward(-1f);
-            m_Score_r += 1;
+            m_Profiling.IncrementRed();
             // StartCoroutine(SwapGroundMaterial(m_Settings.redLightMaterial, 0.5f));
             if (CompletedEpisodes > 1e3 || !m_Settings.isTraining)
             {
+                m_Steps = StepCount;
                 EndEpisode();
             }
         }
         else if (col.gameObject.CompareTag("lights_red_orange"))
         {
             // Associate with tag "lights_red_orange"
-            // LayerMask mask = m_DefaultMask - LayerMask.GetMask("No Pass");
             // StartCoroutine(DisableRayLayer(mask, 0.5f));
 
             SetReward(-0.5f);
-            m_Score_ar += 1;
+            m_Profiling.IncrementAmberRed();
             // StartCoroutine(SwapGroundMaterial(m_Settings.orangeLightMaterial, 0.5f));
             if (CompletedEpisodes > 1e3 || !m_Settings.isTraining)
             {
+                m_Steps = StepCount;
                 EndEpisode();
             }
         }
@@ -356,47 +274,29 @@ public class CrossroadCarAgent : Agent
         {
             // Ạssociate with "wait" tag
             SetReward(-1f);
-            m_Score_np += 1;
+            m_Profiling.IncrementNoPass();
             // StartCoroutine(SwapGroundMaterial(m_Settings.lawBreakMaterial, 0.5f));
+            m_Steps = StepCount;
             EndEpisode();
         }
         else if (col.gameObject.CompareTag("wall"))
         {
             // Associate with "wall" tag
             SetReward(-1f);
-            m_Score_w +=1 ;
+            m_Profiling.IncrementWallCol();
             // StartCoroutine(SwapGroundMaterial(m_Settings.lawBreakMaterial, 0.5f));
+            m_Steps = StepCount;
             EndEpisode();
         }
         else if (col.gameObject.CompareTag("agent"))
         {
             // Associate with "agent" tag
             SetReward(-1f);
-            m_Score_col +=1;
+            m_Profiling.IncrementAgentCol();
             // StartCoroutine(SwapGroundMaterial(m_Settings.lawBreakMaterial, 0.5f));
+            m_Steps = StepCount;
             EndEpisode();
         }
-        // else if (col.gameObject.CompareTag("lane"))
-        // {
-        //     var lane_root = col.transform.parent.parent;
-        //     m_CurrentLane = lane_root.gameObject.GetComponent<CrossroadLane>();
-        //
-        //     m_Direction = m_CurrentLane.direction;
-        //     m_Normal = m_CurrentLane.normal;
-        //
-        //     // if (m_CurrentLane.transform.GetSiblingIndex() == m_TargetLaneId)
-        //     // {
-        //     //     m_Direction *= -1;
-        //     //     m_Normal *= -1;
-        //     // }
-        // }
-        // else if (col.gameObject.CompareTag("crossing"))
-        // {
-        //     m_CurrentLane = m_Scene.lanes.transform.GetChild(m_TargetLaneId).GetComponent<CrossroadLane>();
-        //
-        //     m_Direction = - m_CurrentLane.direction;
-        //     m_Normal = -m_CurrentLane.normal;
-        // }
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -431,7 +331,7 @@ public class CrossroadCarAgent : Agent
         }
         else
         {
-            if (CompletedEpisodes > 6e2 && m_AgentLane.offset < m_AgentLane.length)
+            if (CompletedEpisodes > 6e1 && m_AgentLane.offset < m_AgentLane.length)
             {
                 flag = 1;
                 m_AgentLane.bottom.position -= m_Deviate *  m_AgentLane.direction;
@@ -447,7 +347,7 @@ public class CrossroadCarAgent : Agent
             m_TargetOffset = m_TargetLane.offset - 2f - Random.Range( 0f, 1f);
             m_AgentOffset = - m_AgentLane.offset + 5f + Random.Range(-1f, 3f);
 
-            if (CompletedEpisodes > 1e3)
+            if (CompletedEpisodes > 1e2)
             {
                 flag = 3;
                 m_AgentOffset = Random.Range(- m_AgentLane.offset * 0.85f, -m_AgentLane.offset * 0.3f);
@@ -468,32 +368,7 @@ public class CrossroadCarAgent : Agent
     }
     public override void OnEpisodeBegin()
     {
-        if (m_Settings.recordData)
-        {
-            StreamWriter writer = new StreamWriter(path, true);
-            writer.WriteLine(m_SceneID + " " + m_AgentID + " " +
-                CompletedEpisodes + " " +
-                m_Score_g + " " +
-                m_Score_a + " " +
-                m_Score_r + " " +
-                m_Score_ar + " " +
-                m_Score_col + " " +
-                m_Score_w + " " +
-                m_Score_np + " " +
-                m_Score_t + " " +
-                m_Step);
-            writer.Close();
-            m_Score_g = 0;
-            m_Score_a = 0;
-            m_Score_r = 0;
-            m_Score_ar = 0;
-            m_Score_col = 0;
-            m_Score_w = 0;
-            m_Score_np = 0;
-            m_Score_t = 0;
-            m_Step = 0;
-        }
-
+        m_Profiling.WriteEpStatistics(CompletedEpisodes, m_Steps);
 
         m_Scene.episode++;
         episode = CompletedEpisodes;
@@ -508,35 +383,11 @@ public class CrossroadCarAgent : Agent
         }
 
         m_TargetLane = m_Scene.lanes.transform.GetChild(m_TargetLaneId).GetComponent<CrossroadLane>();
-        // Debug.Log(m_TargetLane.direction + " " + targetLaneId);
-
-        // m_AgentCollider.GetCollider();
-        // m_TargetCollider.GetCollider();
-        // Debug.Log(m_TargetCollider.occupied);
-
-        // m_AgentLane = m_AgentCollider.lane;
-        // if (m_TargetCollider.occupied)
-        // {
-        //     // Debug.Log(m_TargetCollider.lane);
-        //     m_TargetLane = m_TargetCollider.lane;
-        // }
-        // else
-        // {
-        //     Debug.Log("episode: " + m_Scene.episode + "agent: " + this.name + "target offset" + m_TargetOffset);
-        // }
-
-        // Debug.Log("episode: " + m_Scene.episode + ", lane: " + m_AgentLane
-        //     + " target lane: " + m_TargetLane);
-
-        // Debug.Log("episode: " + m_Scene.episode + ", agent lane length: " + m_AgentLane.length
-        //     + " target lane length: " + m_TargetLane.length);
-        //
-        // Debug.Log("episode: " + m_Scene.episode + ", agent offset: " + m_AgentOffset
-        //     + " target offset: " + m_TargetOffset);
 
         ResetOffsets();
 
         m_RandOffset = m_AgentOffset + Random.Range(-4f, 0f);
+        m_RandOffset = -30f;
         transform.position = m_AgentLane.centreline
             + Random.Range(-1.5f, 1.5f) * m_AgentLane.normal
             - 10f * m_AgentLane.direction
