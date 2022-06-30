@@ -25,7 +25,7 @@ behaviors:
       curiosity:
         strength: 0.1
     keep_checkpoints: 5
-    max_steps: 9000000
+    max_steps: 11000000
     time_horizon: 64
     summary_freq: 10000
     threaded: true
