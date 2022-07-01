@@ -2,8 +2,10 @@
 
 This Unity package contains work in progress on developing a heterogeneous, multiagent system that simulates traffic flow in the context of Non-Player Characters for game design. A Reinforcement Learning approch was equipped.
 
-To use our work please cite the following paper as a reference:
-S. Makri and P. Charalambous, "Towards a multi-agent non-player character road network: a Reinforcement Learning approach," _2021 IEEE Conference on Games (CoG)_, 2021, pp. 1-5, doi: [10.1109/CoG52621.2021.9619047](https://doi.org/10.1109/CoG52621.2021.9619047).
+To use our work please cite the following as a reference:
+[1] S. Makri and P. Charalambous, "Towards a multi-agent non-player character road network: a Reinforcement Learning approach" _2021 IEEE Conference on Games (CoG)_, 2021, pp. 1-5, doi: [10.1109/CoG52621.2021.9619047](https://doi.org/10.1109/CoG52621.2021.9619047).
+[2] S. Makri and P. Charalambous, "Navigating a road network using Reinforcement
+Learning" (in prep.)
 
 
 ### Installation

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 122460869918298619}
   - component: {fileID: 2577887088704297539}
   - component: {fileID: 6452548544948330965}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 232122417069968680}
   - component: {fileID: 8653812813568878657}
   - component: {fileID: 6211055773500557138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 4929083641681678639}
   - component: {fileID: 4313466902775679048}
   - component: {fileID: 2503403571093873753}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 13232187912272146}
   - component: {fileID: 1690163386536701377}
   - component: {fileID: 5955942154458248890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9047122996493465131}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightsRed (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 6042550210578633383}
   - component: {fileID: 8555160635484493396}
   - component: {fileID: 4314018987573640767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 4277845020014335875}
   - component: {fileID: 1626885783556361944}
   - component: {fileID: 1640338799847053574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleRedOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +618,7 @@ GameObject:
   - component: {fileID: 2776696869964819879}
   - component: {fileID: 9079043876037477752}
   - component: {fileID: 826075680769087400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pole
   m_TagString: nopass
   m_Icon: {fileID: 0}
@@ -713,7 +713,7 @@ GameObject:
   - component: {fileID: 4032259731386976167}
   - component: {fileID: 3040411005138667212}
   - component: {fileID: 5775121094115851349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pole
   m_TagString: nopass
   m_Icon: {fileID: 0}
@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 6752154441852515725}
   - component: {fileID: 64116176081338648}
   - component: {fileID: 8439984455796250513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +904,7 @@ GameObject:
   - component: {fileID: 4569514080695561061}
   - component: {fileID: 8027497566900112482}
   - component: {fileID: 7054052966284471670}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,6 +1097,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
+  stream: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
   occupied: 0
 --- !u!1 &2133599191731686902
 GameObject:
@@ -1110,7 +1112,7 @@ GameObject:
   - component: {fileID: 6504648474592449552}
   - component: {fileID: 3316610991425937750}
   - component: {fileID: 1267127751363253711}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pole
   m_TagString: nopass
   m_Icon: {fileID: 0}
@@ -1202,7 +1204,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3822407435047206996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SignRed
   m_TagString: sign_red
   m_Icon: {fileID: 0}
@@ -1240,7 +1242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6146515326898728667}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SignGreen
   m_TagString: sign_green
   m_Icon: {fileID: 0}
@@ -1282,7 +1284,7 @@ GameObject:
   - component: {fileID: 7787878107062560552}
   - component: {fileID: 3618932241094903424}
   - component: {fileID: 4916881223656329956}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wait (1)
   m_TagString: lights_orange
   m_Icon: {fileID: 0}
@@ -1378,6 +1380,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
+  stream: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
   occupied: 0
 --- !u!1 &2456816397759341334
 GameObject:
@@ -1391,7 +1395,7 @@ GameObject:
   - component: {fileID: 4182528852825916368}
   - component: {fileID: 4576543254470962828}
   - component: {fileID: 5009933621283982134}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pole (1)
   m_TagString: nopass
   m_Icon: {fileID: 0}
@@ -1486,7 +1490,7 @@ GameObject:
   - component: {fileID: 6779845985144204521}
   - component: {fileID: 3223450753655411156}
   - component: {fileID: 3077811625058513734}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1582,7 +1586,7 @@ GameObject:
   - component: {fileID: 4006057839793184893}
   - component: {fileID: 5193300591541068983}
   - component: {fileID: 9200146760719715740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1678,7 +1682,7 @@ GameObject:
   - component: {fileID: 2810996151006905693}
   - component: {fileID: 8092358190732038845}
   - component: {fileID: 2222600633596313008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wait
   m_TagString: lights_green
   m_Icon: {fileID: 0}
@@ -1774,6 +1778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
+  stream: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
   occupied: 0
 --- !u!1 &3662030916871084965
 GameObject:
@@ -1784,7 +1790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7990175368149456160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SignOrange
   m_TagString: sign_orange
   m_Icon: {fileID: 0}
@@ -1825,7 +1831,7 @@ GameObject:
   - component: {fileID: 1038019158894945444}
   - component: {fileID: 4241389111808134890}
   - component: {fileID: 3637567687411371782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1921,7 +1927,7 @@ GameObject:
   - component: {fileID: 2574376684408846002}
   - component: {fileID: 1465093317210128548}
   - component: {fileID: 2134379945353352327}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2014,7 +2020,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6423861393252232851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightsRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2050,7 +2056,7 @@ GameObject:
   - component: {fileID: 8978691243702529519}
   - component: {fileID: 2609390201373336615}
   - component: {fileID: 634209635372060014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2146,7 +2152,7 @@ GameObject:
   - component: {fileID: 4995798685522944642}
   - component: {fileID: 3753524953943795069}
   - component: {fileID: 2266947934492578108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2242,7 +2248,7 @@ GameObject:
   - component: {fileID: 5709726633106441526}
   - component: {fileID: 5896149811445963442}
   - component: {fileID: 726202022006686885}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2338,7 +2344,7 @@ GameObject:
   - component: {fileID: 4149060201555490536}
   - component: {fileID: 2173379983591816338}
   - component: {fileID: 63234805044000026}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2435,7 +2441,7 @@ GameObject:
   - component: {fileID: 624104638875345112}
   - component: {fileID: 5122740607159642934}
   - component: {fileID: 1462866747524552639}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wait (1)
   m_TagString: lights_red_orange
   m_Icon: {fileID: 0}
@@ -2531,6 +2537,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
+  stream: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
   occupied: 0
 --- !u!1 &5088384186290388291
 GameObject:
@@ -2544,7 +2552,7 @@ GameObject:
   - component: {fileID: 3520495454344289035}
   - component: {fileID: 4439810978657605378}
   - component: {fileID: 3894021119494245274}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2640,7 +2648,7 @@ GameObject:
   - component: {fileID: 4893124507519557724}
   - component: {fileID: 8855092458187254786}
   - component: {fileID: 4319674653324102967}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2773,7 +2781,7 @@ GameObject:
   - component: {fileID: 8239608994337883877}
   - component: {fileID: 7429623627037360043}
   - component: {fileID: 378746777061196492}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wait (1)
   m_TagString: lights_red
   m_Icon: {fileID: 0}
@@ -2869,6 +2877,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
+  stream: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
   occupied: 0
 --- !u!1 &5631331635833348037
 GameObject:
@@ -2883,7 +2893,7 @@ GameObject:
   - component: {fileID: 7005380324388425424}
   - component: {fileID: 7793214195768308667}
   - component: {fileID: 8410110633339465479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wait
   m_TagString: lights_orange
   m_Icon: {fileID: 0}
@@ -2979,6 +2989,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
+  stream: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
   occupied: 0
 --- !u!1 &5895662668413414443
 GameObject:
@@ -2992,7 +3004,7 @@ GameObject:
   - component: {fileID: 1825021170281976160}
   - component: {fileID: 6560546076004867263}
   - component: {fileID: 2285097280225311705}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleRedOrange (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3087,7 +3099,7 @@ GameObject:
   - component: {fileID: 1281252109484296948}
   - component: {fileID: 7750249470353531263}
   - component: {fileID: 7385500892498724767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3180,7 +3192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 385006148645073805}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SignRedOrange
   m_TagString: sign_red_orange
   m_Icon: {fileID: 0}
@@ -3218,7 +3230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7692345386154960106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightsGreen (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3251,7 +3263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8694840740057337177}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightsOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3287,7 +3299,7 @@ GameObject:
   - component: {fileID: 8657414634364833734}
   - component: {fileID: 6588901182496359167}
   - component: {fileID: 1741436894490625245}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3383,7 +3395,7 @@ GameObject:
   - component: {fileID: 8033729383671714471}
   - component: {fileID: 2425065098390684090}
   - component: {fileID: 2344583244653066421}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3479,7 +3491,7 @@ GameObject:
   - component: {fileID: 3453033575576478143}
   - component: {fileID: 3037174402726694648}
   - component: {fileID: 7055928281198318264}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleRed (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3571,7 +3583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 265812888516029178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightsGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3608,7 +3620,7 @@ GameObject:
   - component: {fileID: 3534015146703133408}
   - component: {fileID: 2561505477791914472}
   - component: {fileID: 8476303456273118555}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wait
   m_TagString: lights_red_orange
   m_Icon: {fileID: 0}
@@ -3704,6 +3716,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
+  stream: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
   occupied: 0
 --- !u!1 &6991436261459502100
 GameObject:
@@ -3814,6 +3828,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
+  stream: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
   occupied: 0
 --- !u!1 &7542486567389454209
 GameObject:
@@ -3828,7 +3844,7 @@ GameObject:
   - component: {fileID: 4313855293459663477}
   - component: {fileID: 6969389054569577692}
   - component: {fileID: 2823809278730752162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wait
   m_TagString: lights_red
   m_Icon: {fileID: 0}
@@ -3924,6 +3940,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
+  stream: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
   occupied: 0
 --- !u!1 &7553677806999097964
 GameObject:
@@ -3937,7 +3955,7 @@ GameObject:
   - component: {fileID: 1932578783938427566}
   - component: {fileID: 1595986198345561649}
   - component: {fileID: 5126638952964417271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pole (1)
   m_TagString: nopass
   m_Icon: {fileID: 0}
@@ -4032,7 +4050,7 @@ GameObject:
   - component: {fileID: 1760237865252756404}
   - component: {fileID: 1229980199918767657}
   - component: {fileID: 6092535426571825454}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4128,7 +4146,7 @@ GameObject:
   - component: {fileID: 8034475175513828270}
   - component: {fileID: 6742914986726818315}
   - component: {fileID: 8722151926424079043}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4225,7 +4243,7 @@ GameObject:
   - component: {fileID: 3400701200127930002}
   - component: {fileID: 8824013007311674259}
   - component: {fileID: 7594406814661682080}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wait (1)
   m_TagString: lights_green
   m_Icon: {fileID: 0}
@@ -4321,6 +4339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lane: {fileID: 0}
+  stream: {x: 0, y: 0, z: 0}
+  current: {x: 0, y: 0, z: 0}
   occupied: 0
 --- !u!1 &8043344419556499663
 GameObject:
@@ -4334,7 +4354,7 @@ GameObject:
   - component: {fileID: 5768440254119641007}
   - component: {fileID: 3916160389833895400}
   - component: {fileID: 7655481384802975437}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4430,7 +4450,7 @@ GameObject:
   - component: {fileID: 4864411006553957531}
   - component: {fileID: 3811124328415954051}
   - component: {fileID: 2574366684734101196}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleOrange (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4525,7 +4545,7 @@ GameObject:
   - component: {fileID: 6598617907945277511}
   - component: {fileID: 7324387855148970364}
   - component: {fileID: 7783987759408194647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pole (1)
   m_TagString: nopass
   m_Icon: {fileID: 0}
@@ -4617,7 +4637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2906459741722957792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightsRedOrange (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4653,7 +4673,7 @@ GameObject:
   - component: {fileID: 6015736516451520549}
   - component: {fileID: 2091215920717333707}
   - component: {fileID: 7256066122928897146}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pole
   m_TagString: nopass
   m_Icon: {fileID: 0}
@@ -4748,7 +4768,7 @@ GameObject:
   - component: {fileID: 326202382874237118}
   - component: {fileID: 7287526599065569994}
   - component: {fileID: 7417236229829281190}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4844,7 +4864,7 @@ GameObject:
   - component: {fileID: 1563103042327920246}
   - component: {fileID: 874755901520828678}
   - component: {fileID: 644802249175099740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4940,7 +4960,7 @@ GameObject:
   - component: {fileID: 3168975870463508960}
   - component: {fileID: 7827088890153416845}
   - component: {fileID: 4878556459207805143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5033,7 +5053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4202590036048575968}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightsOrange (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5069,7 +5089,7 @@ GameObject:
   - component: {fileID: 9166416682749378584}
   - component: {fileID: 8978777625336432644}
   - component: {fileID: 7582855501828249304}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pole (1)
   m_TagString: nopass
   m_Icon: {fileID: 0}
@@ -5161,7 +5181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5937053573022195399}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LightsRedOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5197,7 +5217,7 @@ GameObject:
   - component: {fileID: 3358447293741491080}
   - component: {fileID: 2655932144006768054}
   - component: {fileID: 309174654411439479}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5293,7 +5313,7 @@ GameObject:
   - component: {fileID: 5027678802187956035}
   - component: {fileID: 6441262330639850813}
   - component: {fileID: 608639497501455007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PoleGreen (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

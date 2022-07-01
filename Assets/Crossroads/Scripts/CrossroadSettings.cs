@@ -14,8 +14,7 @@ public class CrossroadSettings : MonoBehaviour
     public float deviate = 0.1f;
 
     public bool isTraining = false;
-
-    private float fixedDeltaTime;
+    public bool verbose = false;
 
     public bool writeResults = false;
     string m_ScoresFile;
@@ -72,6 +71,15 @@ public class CrossroadSettings : MonoBehaviour
             writer.Close();
 
             var a_scene = GameObject.Find("/CrossroadsArea");
+            if (!a_scene){
+                a_scene = GameObject.Find("/RoundaboutArea");
+            }
+            if (!a_scene){
+                a_scene = GameObject.Find("/CrossroadsArea (curved)");
+            }
+            if (!a_scene){
+                a_scene = GameObject.Find("/CrossroadsArea (narrow)");
+            }
             var agentCount = 0;
             string agentModel = " ";
             foreach(Transform child in a_scene.transform)

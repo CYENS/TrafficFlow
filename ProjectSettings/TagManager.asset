@@ -29,6 +29,9 @@ TagManager:
   - overlay
   - nopass
   - crossing
+  - left_lane
+  - right_lane
+  - wall_centre
   layers:
   - Default
   - TransparentFX

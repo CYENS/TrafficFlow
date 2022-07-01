@@ -845,7 +845,6 @@ GameObject:
   - component: {fileID: 114388598785529460}
   - component: {fileID: 3309119623671933237}
   - component: {fileID: 1360037369662378601}
-  - component: {fileID: 3959905707628515947}
   m_Layer: 0
   m_Name: Agent
   m_TagString: agent
@@ -1029,19 +1028,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 6
   TakeActionsBetweenDecisions: 1
---- !u!114 &3959905707628515947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471560210313468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6da8f78a394c6ab027688eab81e04d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugCommandLineOverride: 
 --- !u!1 &1510027348950282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,7 +1684,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1942,7 +1928,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3183,7 +3169,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3264,7 +3250,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4038,7 +4024,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4412,7 +4398,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4621,7 +4607,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4735,7 +4721,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4998,7 +4984,6 @@ GameObject:
   - component: {fileID: 2676748387672968507}
   - component: {fileID: 5416623501906398274}
   - component: {fileID: 7622147161705178979}
-  - component: {fileID: 4160864619819883770}
   m_Layer: 0
   m_Name: Agent
   m_TagString: agent
@@ -5182,16 +5167,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 6
   TakeActionsBetweenDecisions: 1
---- !u!114 &4160864619819883770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8963924958714632096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6da8f78a394c6ab027688eab81e04d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugCommandLineOverride: 

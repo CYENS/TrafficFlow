@@ -1,10 +1,10 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Policies;
-using System.IO;
 
 public class CrossroadCarAgent : Agent
 {
@@ -13,9 +13,6 @@ public class CrossroadCarAgent : Agent
     public GameObject area;
     public GameObject target;
     public bool useVectorObs;
-
-    public int agentID;
-    public int sceneID;
 
     Rigidbody m_AgentRb;
     Material m_GroundMaterial;
@@ -27,6 +24,7 @@ public class CrossroadCarAgent : Agent
     CrossroadColliders m_AgentCollider;
 
     CrossroadLane m_AgentLane;
+    CrossroadLane m_CurrentLane;
     CrossroadLane m_TargetLane;
 
     public GameObject InitLane;
@@ -48,8 +46,11 @@ public class CrossroadCarAgent : Agent
 
     LayerMask m_DefaultMask;
 
+    Vector3 m_Direction;
+
     public float flag;
     public int episode;
+    public int idle;
 
     int m_Steps = 0;
 
@@ -83,7 +84,11 @@ public class CrossroadCarAgent : Agent
         m_TargetCollider =  target.transform.GetChild(0).GetComponent<CrossroadColliders>();
 
         m_AgentLane = InitLane.GetComponent<CrossroadLane>();
+        m_CurrentLane = InitLane.GetComponent<CrossroadLane>();
         m_TargetLane = EndLane.GetComponent<CrossroadLane>();
+
+        m_Direction = m_CurrentLane.direction;
+        // m_Normal = m_CurrentLane.normal;
 
         CrossroadLane arbitrary_lane;
         if (this.transform.GetSiblingIndex() == 0)
@@ -96,10 +101,6 @@ public class CrossroadCarAgent : Agent
             }
         }
 
-        agentID = this.transform.parent.GetSiblingIndex();
-        sceneID = this.transform.parent.parent.GetSiblingIndex();
-
-
         m_AgentOffset = 0f;
         m_TargetOffset = 0f;
 
@@ -111,7 +112,48 @@ public class CrossroadCarAgent : Agent
         transform.GetComponent<RayPerceptionSensorComponentBase>();
         m_DefaultMask = LayerMask.GetMask("Default", "Ground",
             "Agent", "Traffic Lights", "Lane", "Target", "No Pass");
+
+        var randcolour = Color.HSVToRGB(Random.Range(0f, 0.85f), Random.Range(0.30f, 0.40f), Random.Range(0.75f, 0.85f));
+
+        var agentRenderer = transform.GetChild(0).GetComponent<MeshRenderer>();
+        agentRenderer.material.SetColor("_Color", randcolour);
+        var targetRenderer = m_TargetTr.GetChild(0).GetComponent<MeshRenderer>();
+        targetRenderer.material.SetColor("_Color", randcolour);
     }
+
+    public bool drawgizmos=false;
+
+    void OnDrawGizmos()
+    {
+        if (drawgizmos)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(m_TargetLane.enter.transform.position, m_AgentLane.exit.transform.position);
+        }
+    }
+
+    public float Deviation()
+    {
+        float dev = 0f;
+        if (m_AgentCollider.stream.magnitude == 0)
+        {
+            drawgizmos = true;
+            var goaldir = m_TargetLane.enter.transform.position - m_AgentLane.exit.transform.position;
+            var goalnormal = Vector3.Cross(Vector3.up, Vector3.Normalize(goaldir));
+            var agentpos = m_AgentTr.position - m_AgentLane.exit.transform.position;
+            dev = Vector3.Dot(agentpos, goalnormal);
+        }
+        else if (m_AgentCollider.occupied)
+        {
+            drawgizmos = false;
+            var agentpos = m_AgentTr.position - m_AgentCollider.lane.centreline;
+            var centrenormal = Vector3.Dot(m_AgentCollider.lane.direction, m_AgentCollider.stream) * m_AgentCollider.lane.normal;
+            dev = Vector3.Dot(agentpos, centrenormal);
+        }
+
+        return dev;
+    }
+
 
     public override void CollectObservations(VectorSensor sensor)
     {
@@ -130,9 +172,11 @@ public class CrossroadCarAgent : Agent
 
     IEnumerator SwapGroundMaterial(Material mat, float time)
     {
-        m_GroundRenderer.material = mat;
-        yield return new WaitForSeconds(time);
-        m_GroundRenderer.material = m_GroundMaterial;
+        if (m_Settings.verbose){
+            m_GroundRenderer.material = mat;
+            yield return new WaitForSeconds(time);
+            m_GroundRenderer.material = m_GroundMaterial;
+        }
     }
 
     RayPerceptionSensorComponentBase  m_Raysensor;
@@ -147,7 +191,7 @@ public class CrossroadCarAgent : Agent
 
     }
 
-    float m_theta = 20f;
+    float m_theta = 1f;
     Vector3 rotateDir = Vector3.zero;
     public void MoveAgent(ActionSegment<int> act)
     {
@@ -162,6 +206,7 @@ public class CrossroadCarAgent : Agent
         switch (action)
         {
             case 0:
+                idle+=1;
                 break;
             case 1:
                 dirToGo = transform.forward * 1f;
@@ -170,7 +215,7 @@ public class CrossroadCarAgent : Agent
                     Time.deltaTime * m_Settings.agentRotationSpeed, 0f);
                 break;
             case 2:
-                dirToGo = transform.forward * -1f;
+                dirToGo = transform.forward * -0.2f;
                 rotateTowards =
                     Vector3.RotateTowards(transform.forward, rotateDir,
                     Time.deltaTime * m_Settings.agentRotationSpeed, 0f);
@@ -209,6 +254,8 @@ public class CrossroadCarAgent : Agent
         // Learn intrinsically the sense of time
         AddReward(-0.1f / MaxStep);
         MoveAgent(actionBuffers.DiscreteActions);
+
+        m_AgentCollider.GetLaneStream(m_AgentLane.direction, -m_TargetLane.direction);
     }
 
     void OnCollisionEnter(Collision col)
@@ -219,7 +266,7 @@ public class CrossroadCarAgent : Agent
             // Associate with magnitude & deflection observations
             SetReward(1f);
             m_Profiling.IncrementTarget();
-            // StartCoroutine(SwapGroundMaterial(m_Settings.goalScoredMaterial, 0.5f));
+            StartCoroutine(SwapGroundMaterial(m_Settings.goalScoredMaterial, 0.5f));
             m_Steps = StepCount;
             EndEpisode();
         }
@@ -227,28 +274,26 @@ public class CrossroadCarAgent : Agent
         {
             // Associate with tag "lights_green"
             // StartCoroutine(DisableRayLayer(mask, 0.5f));
-
-            AddReward(1f / MaxStep);
             m_Profiling.IncrementGreen();
-            // StartCoroutine(SwapGroundMaterial(m_Settings.greenLightMaterial, 0.5f));
+            AddReward(1f / MaxStep);
+            StartCoroutine(SwapGroundMaterial(m_Settings.greenLightMaterial, 0.5f));
         }
         else if (col.gameObject.CompareTag("lights_orange"))
         {
             // Associate with tag "lights_orange"
             // StartCoroutine(DisableRayLayer(mask, 0.5f));
 
-            AddReward(-0.8f / MaxStep);
+            // AddReward(-1f / MaxStep);
             m_Profiling.IncrementAmber();
-            // StartCoroutine(SwapGroundMaterial(m_Settings.orangeLightMaterial, 0.5f));
+            StartCoroutine(SwapGroundMaterial(m_Settings.orangeLightMaterial, 0.5f));
         }
         else if (col.gameObject.CompareTag("lights_red"))
         {
             // Associate with tag "lights_red"
             // StartCoroutine(DisableRayLayer(mask, 0.5f));
-
-            SetReward(-1f);
             m_Profiling.IncrementRed();
-            // StartCoroutine(SwapGroundMaterial(m_Settings.redLightMaterial, 0.5f));
+            SetReward(-1f);
+            StartCoroutine(SwapGroundMaterial(m_Settings.redLightMaterial, 0.5f));
             if (CompletedEpisodes > 1e3 || !m_Settings.isTraining)
             {
                 m_Steps = StepCount;
@@ -262,7 +307,7 @@ public class CrossroadCarAgent : Agent
 
             SetReward(-0.5f);
             m_Profiling.IncrementAmberRed();
-            // StartCoroutine(SwapGroundMaterial(m_Settings.orangeLightMaterial, 0.5f));
+            StartCoroutine(SwapGroundMaterial(m_Settings.orangeLightMaterial, 0.5f));
             if (CompletedEpisodes > 1e3 || !m_Settings.isTraining)
             {
                 m_Steps = StepCount;
@@ -275,16 +320,17 @@ public class CrossroadCarAgent : Agent
             // Ạssociate with "wait" tag
             SetReward(-1f);
             m_Profiling.IncrementNoPass();
-            // StartCoroutine(SwapGroundMaterial(m_Settings.lawBreakMaterial, 0.5f));
+            StartCoroutine(SwapGroundMaterial(m_Settings.lawBreakMaterial, 0.5f));
             m_Steps = StepCount;
             EndEpisode();
         }
-        else if (col.gameObject.CompareTag("wall"))
+        else if (col.gameObject.CompareTag("wall") ||
+            col.gameObject.CompareTag("wall_centre"))
         {
             // Associate with "wall" tag
             SetReward(-1f);
             m_Profiling.IncrementWallCol();
-            // StartCoroutine(SwapGroundMaterial(m_Settings.lawBreakMaterial, 0.5f));
+            StartCoroutine(SwapGroundMaterial(m_Settings.lawBreakMaterial, 0.5f));
             m_Steps = StepCount;
             EndEpisode();
         }
@@ -293,7 +339,7 @@ public class CrossroadCarAgent : Agent
             // Associate with "agent" tag
             SetReward(-1f);
             m_Profiling.IncrementAgentCol();
-            // StartCoroutine(SwapGroundMaterial(m_Settings.lawBreakMaterial, 0.5f));
+            StartCoroutine(SwapGroundMaterial(m_Settings.lawBreakMaterial, 0.5f));
             m_Steps = StepCount;
             EndEpisode();
         }
@@ -331,7 +377,7 @@ public class CrossroadCarAgent : Agent
         }
         else
         {
-            if (CompletedEpisodes > 6e1 && m_AgentLane.offset < m_AgentLane.length)
+            if (CompletedEpisodes > 6e2 && m_AgentLane.offset < m_AgentLane.length)
             {
                 flag = 1;
                 m_AgentLane.bottom.position -= m_Deviate *  m_AgentLane.direction;
@@ -347,7 +393,7 @@ public class CrossroadCarAgent : Agent
             m_TargetOffset = m_TargetLane.offset - 2f - Random.Range( 0f, 1f);
             m_AgentOffset = - m_AgentLane.offset + 5f + Random.Range(-1f, 3f);
 
-            if (CompletedEpisodes > 1e2)
+            if (CompletedEpisodes > 1e3)
             {
                 flag = 3;
                 m_AgentOffset = Random.Range(- m_AgentLane.offset * 0.85f, -m_AgentLane.offset * 0.3f);
@@ -368,6 +414,8 @@ public class CrossroadCarAgent : Agent
     }
     public override void OnEpisodeBegin()
     {
+        idle = 0;
+
         m_Profiling.WriteEpStatistics(CompletedEpisodes, m_Steps);
 
         m_Scene.episode++;
@@ -387,7 +435,6 @@ public class CrossroadCarAgent : Agent
         ResetOffsets();
 
         m_RandOffset = m_AgentOffset + Random.Range(-4f, 0f);
-        m_RandOffset = -30f;
         transform.position = m_AgentLane.centreline
             + Random.Range(-1.5f, 1.5f) * m_AgentLane.normal
             - 10f * m_AgentLane.direction

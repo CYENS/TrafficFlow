@@ -1,0 +1,2 @@
+model CrossroadLightsGridAgents
+8 agents in the scene

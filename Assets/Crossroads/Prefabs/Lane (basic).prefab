@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 180142728403043768}
   - component: {fileID: 180142728403043769}
   - component: {fileID: 180142728403043770}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallBottom
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3031857917029652185}
   - component: {fileID: 4525293457385838202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lane (basic)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2473805195306195620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LaneScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,6 +186,7 @@ Transform:
   m_Children:
   - {fileID: 2764359147117785705}
   - {fileID: 6840523640512361286}
+  - {fileID: 301994769312411986}
   - {fileID: 1086008073370339255}
   m_Father: {fileID: 3031857917029652185}
   m_RootOrder: 0
@@ -199,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8738572629361440794}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2390444746477544843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.875, y: 0, z: -4.875}
+  m_LocalPosition: {x: -4.875, y: 0, z: -9.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3031857917029652185}
@@ -229,7 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8758327270654474748}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3199174075582125477}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 4.875, y: 0, z: -4.875}
+  m_LocalPosition: {x: 4.875, y: 0, z: -9.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3031857917029652185}
@@ -262,7 +263,7 @@ GameObject:
   - component: {fileID: 6983383341694829547}
   - component: {fileID: 6726264720122929330}
   - component: {fileID: 7665062704746792433}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallLeft
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -407,7 +408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1086008073370339255}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +432,7 @@ Transform:
   - {fileID: 3562322990982837806}
   - {fileID: 6083312597351460630}
   m_Father: {fileID: 2473805195306195620}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6190119220741727290
 GameObject:
@@ -445,7 +446,7 @@ GameObject:
   - component: {fileID: 7310642435749803790}
   - component: {fileID: 8191637540964109965}
   - component: {fileID: 1524980180997373928}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallRight
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -528,6 +529,59 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7197933984467262319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 301994769312411986}
+  - component: {fileID: 5067870913570661240}
+  - component: {fileID: 4751078011206807497}
+  m_Layer: 9
+  m_Name: RightLane
+  m_TagString: right_lane
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &301994769312411986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197933984467262319}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.0092}
+  m_Children: []
+  m_Father: {fileID: 2473805195306195620}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5067870913570661240
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197933984467262319}
+  m_Mesh: {fileID: 0}
+--- !u!65 &4751078011206807497
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7197933984467262319}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 900, y: 100, z: 4400}
+  m_Center: {x: 487.5, y: 500, z: 0}
 --- !u!1 &7582316229284444066
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +594,7 @@ GameObject:
   - component: {fileID: 6391968858210609661}
   - component: {fileID: 2809415686811198745}
   - component: {fileID: 3543550735421169702}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WallBottom (end)
   m_TagString: wall
   m_Icon: {fileID: 0}
@@ -637,7 +691,7 @@ GameObject:
   - component: {fileID: 876917370152732554}
   m_Layer: 9
   m_Name: WallCentral
-  m_TagString: wall
+  m_TagString: wall_centre
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -730,8 +784,8 @@ GameObject:
   - component: {fileID: 1714058849755541613}
   - component: {fileID: 6516160160132503132}
   m_Layer: 9
-  m_Name: Overlay
-  m_TagString: overlay
+  m_Name: LeftLane
+  m_TagString: left_lane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,5 +823,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1900, y: 100, z: 4400}
-  m_Center: {x: -1.5001221, y: 500, z: 0}
+  m_Size: {x: 900, y: 100, z: 4400}
+  m_Center: {x: -487.5, y: 500, z: 0}

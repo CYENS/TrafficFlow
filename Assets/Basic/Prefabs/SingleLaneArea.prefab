@@ -841,7 +841,6 @@ GameObject:
   - component: {fileID: 114286701363010626}
   - component: {fileID: 114388598785529460}
   - component: {fileID: 1360037369662378601}
-  - component: {fileID: 3959905707628515947}
   - component: {fileID: 3309119623671933237}
   m_Layer: 0
   m_Name: Agent
@@ -917,7 +916,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 3d72282a891a541d6941e95c0d572309, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: TrafficLights
@@ -997,19 +996,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 6
   TakeActionsBetweenDecisions: 1
---- !u!114 &3959905707628515947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1471560210313468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6da8f78a394c6ab027688eab81e04d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugCommandLineOverride: 
 --- !u!114 &3309119623671933237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2229,7 +2215,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2502,7 +2488,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2871,7 +2857,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3817,7 +3803,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d9e2f3c0e55764cbebdb181618e1670b, type: 2}
+  - {fileID: 2100000, guid: b7f5b9d20c5584b91aa6cb9b7bd3d1b7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

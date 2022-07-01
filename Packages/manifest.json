@@ -5,7 +5,7 @@
     "com.unity.ide.visualstudio": "2.0.9",
     "com.unity.ide.vscode": "1.2.3",
     "com.unity.ml-agents": "2.1.0-exp.1",
-    "com.unity.ml-agents.extensions": "file:../../../Projects/_duplicates_/TrafficFlow/com.unity.ml-agents.extensions",
+    "com.unity.ml-agents.extensions": "file:</path/to/ml-agents>/com.unity.ml-agents.extensions",
     "com.unity.recorder": "2.5.5",
     "com.unity.test-framework": "1.1.26",
     "com.unity.textmeshpro": "3.0.6",

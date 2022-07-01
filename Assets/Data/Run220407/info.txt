@@ -1,0 +1,2 @@
+model CrossroadLightsGridAgents
+4 agents in the scene
