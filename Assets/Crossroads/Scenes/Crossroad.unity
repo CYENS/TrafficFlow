@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745841960385024, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726744827719472, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_RootOrder
@@ -442,7 +442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745841960385024, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726744827719472, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_RootOrder
@@ -737,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745841960385024, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726744827719472, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_RootOrder
@@ -855,7 +855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745841960385024, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726744827719472, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_RootOrder
@@ -1034,7 +1034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745841960385024, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726744827719472, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_RootOrder
@@ -1095,7 +1095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745841960385024, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726744827719472, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_RootOrder
@@ -1289,7 +1289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745841960385024, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726744827719472, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_RootOrder
@@ -1681,7 +1681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1745841960385024, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4726744827719472, guid: b7ae8d1eb50d9d2f29fd1ed2c3dfb9d6, type: 3}
       propertyPath: m_RootOrder
@@ -1738,7 +1738,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1574236049}
-  - component: {fileID: 1574236050}
   - component: {fileID: 1574236048}
   m_Layer: 0
   m_Name: Settings
@@ -1768,7 +1767,7 @@ MonoBehaviour:
   lawBreakMaterial: {fileID: 2100000, guid: ff14134b548ad4790809bd7ffdffbf32, type: 2}
   deviate: 0
   isTraining: 0
-  verbose: 0
+  verbose: 1
   writeResults: 0
 --- !u!4 &1574236049
 Transform:
@@ -1784,24 +1783,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1574236050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574236047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec51f47c5ed0478080c449c74fd9c154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravityMultiplier: 2
-  fixedDeltaTime: 0.02
-  maximumDeltaTime: 0.33333334
-  solverIterations: 6
-  solverVelocityIterations: 1
-  reuseCollisionCallbacks: 1
 --- !u!1001 &1600560976
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 576026651972601349}
   - component: {fileID: 2582197262834386439}
   - component: {fileID: 4315423939642780316}
-  - component: {fileID: 9154603481972400388}
+  - component: {fileID: 6336176165212332152}
   m_Layer: 7
   m_Name: Agent
   m_TagString: agent
@@ -420,7 +420,7 @@ MonoBehaviour:
   stream: {x: 0, y: 0, z: 0}
   current: {x: 0, y: 0, z: 0}
   occupied: 0
---- !u!114 &9154603481972400388
+--- !u!114 &6336176165212332152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

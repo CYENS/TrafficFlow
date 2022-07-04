@@ -256,6 +256,12 @@ public class CrossroadCarAgent : Agent
         MoveAgent(actionBuffers.DiscreteActions);
 
         m_AgentCollider.GetLaneStream(m_AgentLane.direction, -m_TargetLane.direction);
+
+        if (Vector3.Dot(transform.forward * 1f, m_AgentCollider.stream) <- 0.01f )
+        {
+            m_Steps = StepCount;
+            EndEpisode();
+        }
     }
 
     void OnCollisionEnter(Collision col)
