@@ -18,14 +18,14 @@ The TrafficFlow package is implemented in the Unity game engine and utilises the
 - Clone the [ml-agents repository](https://github.com/Unity-Technologies/ml-agents/tree/release_18) (release_18).
 - Install the `mlagents` Python package (0.27.0)
 
-You can refer to the [ml-agents repository documentation](https://github.com/Unity-Technologies/ml-agents/blob/release_18_docs/docs/Installation.md) for more details. We recomend that you follow the [local installation for development](https://github.com/Unity-Technologies/ml-agents/blob/release_18_docs/docs/Installation.md#advanced-local-installation-for-development-2) instructions when installing the `mlagents` Python package.
+You can refer to the [ml-agents repository documentation](https://github.com/Unity-Technologies/ml-agents/blob/release_18_docs/docs/Installation.md) for more details. We recommend that you follow the [local installation for development](https://github.com/Unity-Technologies/ml-agents/blob/release_18_docs/docs/Installation.md#advanced-local-installation-for-development-2) instructions when installing the `mlagents` Python package.
 **NOTE:** You may wish to omit installing the `com.unity.ml-agents` and `com.unity.ml-agents.extensions` Unity packages for the time being. We will come back to this later.
 
 #### Download the Trafficflow repository
 Clone this repository.
 
 ```sh
-git clone --branch v2.0 https://github.com/CYENS/TrafficFlow.git
+git clone --branch v2.1 https://github.com/CYENS/TrafficFlow.git
 
 ```
 
