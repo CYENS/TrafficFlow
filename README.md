@@ -1,11 +1,10 @@
 # TrafficFlow
 
-This Unity package contains work in progress on developing a heterogeneous, multiagent system that simulates traffic flow in the context of Non-Player Characters for game design. A Reinforcement Learning approch was equipped.
+This Unity package contains work in progress on developing a heterogeneous, multi-agent system that simulates traffic flow in the context of Non-Player Characters for game design. A Reinforcement Learning approach was equipped.
 
 To use our work please cite the following as a reference:
 [1] S. Makri and P. Charalambous, "Towards a multi-agent non-player character road network: a Reinforcement Learning approach" _2021 IEEE Conference on Games (CoG)_, 2021, pp. 1-5, doi: [10.1109/CoG52621.2021.9619047](https://doi.org/10.1109/CoG52621.2021.9619047).
-[2] S. Makri and P. Charalambous, "Navigating a road network using Reinforcement
-Learning" (in prep.)
+[2] S. Makri and P. Charalambous, "Navigating a road network using Reinforcement Learning" _2022 International Conference on Interactive Media, Smart Systems and Emerging Technologies (IMET)_, 2022, pp. 1-8, doi: [10.1109/IMET54801.2022.9929765](https://ieeexplore.ieee.org/document/9929765).
 
 
 ### Installation
@@ -31,7 +30,7 @@ git clone --branch v2.1 https://github.com/CYENS/TrafficFlow.git
 
 You then need to edit the `./Packages/manifest.json` and `.Packages/packages-lock.json` files as follows.
 1. In line 8 of `./Packages/manifest.json`, replace `</path/to/ml-agents>` with the path where you installed the `ml-agents` repository.
-1. In line 82 of `./Packages/manifest.json`, replace `</path/to/ml-agents>` with the path where you installed the `ml-agents` repository.
+1. In line 82 of `./Packages/packages-lock.json`, replace `</path/to/ml-agents>` with the path where you installed the `ml-agents` repository.
 
 #### Installing the ML-Agents Unity package
 Open the `TrafficFlow` project in Unity. You should check that the following Unity packages are listed in the Package Manager.
@@ -52,4 +51,4 @@ You can also install these mannually by [adding the local](https://docs.unity3d.
 There are 3 scenes implemented, organised in 3 separate folders under the [`Assets`](./Assets/) folder. Pre-trained model files are provided for each environment. These are located in the respective `Models` folders.
 1. The [`Basic`](./Assets/Basic/Scenes/Basic.unity) scene, where our first experiments were carried out. A single agent crosses the traffic lights to reach its target. The lane is quite wide.
 1. A [`Lane`](./Assets/Lanes/Scenes/Lane.unity) scene, where we extended the `Basic` scene to train two agents crossing the traffic lights from opposite directions in order to reach their goal.
-1. A [`Crossroad`](./Assets/Crossroads/Scenes/Crossroad.unity) scene. Here, we have implemented two different areas. A simple crossroad intersection governed by traffic lights, and a simplified version of the same intersection with motion restricted in a line to help training. For more details you can refer to [Makri and Charalambous (2021)](https://doi.org/10.1109/CoG52621.2021.9619047).
+1. A [`Crossroad`](./Assets/Crossroads/Scenes/Crossroad.unity) scene. Here, we have implement a simple crossroad intersection governed by traffic lights. For more details you can refer to [Makri and Charalambous (2022)](https://ieeexplore.ieee.org/document/9929765).

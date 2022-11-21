@@ -265,7 +265,6 @@ GameObject:
   - component: {fileID: 1493396258311936146}
   - component: {fileID: 1508608624688872928}
   - component: {fileID: 576026651972601349}
-  - component: {fileID: 2582197262834386439}
   - component: {fileID: 4315423939642780316}
   - component: {fileID: 6336176165212332152}
   m_Layer: 7
@@ -350,6 +349,7 @@ MonoBehaviour:
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
+  m_DeterministicInference: 0
   m_ObservableAttributeHandling: 0
 --- !u!114 &1508608624688872928
 MonoBehaviour:
@@ -391,19 +391,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 6
   TakeActionsBetweenDecisions: 1
---- !u!114 &2582197262834386439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1523515851320222864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a6da8f78a394c6ab027688eab81e04d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugCommandLineOverride: 
 --- !u!114 &4315423939642780316
 MonoBehaviour:
   m_ObjectHideFlags: 0
