@@ -66,6 +66,7 @@ public class CrossroadLane : MonoBehaviour
         var boundsmin = m_Left.GetComponent<Renderer>().bounds.min;
         length = Mathf.Abs(Vector3.Dot((boundsmax - boundsmin), direction));
         // Debug.Log("I am " + this.name + " " + length);
+        length=45f;
 
         var centre = 0.25f * (3f * leftShoulder.transform.position + rightShoulder.transform.position) - ground.transform.position;
         centreline = Vector3.Dot(centre, normal) * normal;
@@ -75,12 +76,12 @@ public class CrossroadLane : MonoBehaviour
 
     public void SetTrainingBounds()
     {
-        if (m_Settings.isTraining)
+        if (m_Settings.boundedTraining)
         {
-            offset = 0.35f * length;
+            offset = 0.5f * length;
             bottom.position = (bottom.position.y
             - ground.transform.position.y) * Vector3.up - offset * direction
-            - 10f * direction
+            // - 10f * direction
             + ground.transform.position;
             // Debug.Log("I am " + this.name + " " + offset);
         }

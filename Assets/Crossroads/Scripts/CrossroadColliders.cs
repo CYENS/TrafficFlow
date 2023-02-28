@@ -42,6 +42,15 @@ public class CrossroadColliders : MonoBehaviour
 
             if (col.gameObject.CompareTag("crossing"))
             {
+                // if (current.magnitude != 0f)
+                // {
+                //   stream = current + final;
+                // }
+                // else
+                // {
+                //   stream = init + final;
+                // }
+                // stream.Normalize();
                 stream = Vector3.zero;
                 // print(this.name + ": hit object " + col.name);
             }

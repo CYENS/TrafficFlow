@@ -24,7 +24,7 @@ You can refer to the [ml-agents repository documentation](https://github.com/Uni
 Clone this repository.
 
 ```sh
-git clone --branch v2.1 https://github.com/CYENS/TrafficFlow.git
+git clone --branch v3.0 https://github.com/CYENS/TrafficFlow.git
 
 ```
 
@@ -35,8 +35,8 @@ You then need to edit the `./Packages/manifest.json` and `.Packages/packages-loc
 #### Installing the ML-Agents Unity package
 Open the `TrafficFlow` project in Unity. You should check that the following Unity packages are listed in the Package Manager.
 
-- `com.unity.ml-agents` Unity package (2.1.0-exp.1)
-- `com.unity.ml-agents.extensions` Unity package (0.5.0-preview)
+- `com.unity.ml-agents` Unity package (2.3.0-exp.3)
+- `com.unity.ml-agents.extensions` Unity package (0.6.1-preview)
 
 <p align="center">
   <img src="docs/images/check_package_manager.png"
@@ -51,4 +51,4 @@ You can also install these mannually by [adding the local](https://docs.unity3d.
 There are 3 scenes implemented, organised in 3 separate folders under the [`Assets`](./Assets/) folder. Pre-trained model files are provided for each environment. These are located in the respective `Models` folders.
 1. The [`Basic`](./Assets/Basic/Scenes/Basic.unity) scene, where our first experiments were carried out. A single agent crosses the traffic lights to reach its target. The lane is quite wide.
 1. A [`Lane`](./Assets/Lanes/Scenes/Lane.unity) scene, where we extended the `Basic` scene to train two agents crossing the traffic lights from opposite directions in order to reach their goal.
-1. A [`Crossroad`](./Assets/Crossroads/Scenes/Crossroad.unity) scene. Here, we have implement a simple crossroad intersection governed by traffic lights. For more details you can refer to [Makri and Charalambous (2022)](https://ieeexplore.ieee.org/document/9929765).
+1. A [`Crossroad`](./Assets/Crossroads/Scenes/Crossroad.unity) scene. Here, we have implemented a simple crossroad intersection governed by traffic lights. For more details you can refer to [Makri and Charalambous (2022)](https://ieeexplore.ieee.org/document/9929765).

@@ -8,7 +8,7 @@ public class CrossroadLights : MonoBehaviour
 
     public GameObject[] signs;
 
-    [HideInInspector]
+    // [HideInInspector]
     public int selection;
     public int master;
 

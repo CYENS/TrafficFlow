@@ -13,7 +13,9 @@ public class CrossroadSettings : MonoBehaviour
     [HideInInspector]
     public float deviate = 0.1f;
 
+    public bool boundedTraining = false;
     public bool isTraining = false;
+    public bool connectLanes = false;
     public bool verbose = false;
 
     public bool writeResults = false;
@@ -59,6 +61,7 @@ public class CrossroadSettings : MonoBehaviour
     }
 
     public string[] getResultsFileName(){
+    // public string getResultsFileName(){
         if (!m_NamedFile) {
             m_NamedFile = true;
             createResultsFiles();
@@ -100,5 +103,6 @@ public class CrossroadSettings : MonoBehaviour
         arr[0] = m_ScoresFile;
         arr[1] = m_SpeedProfileFile;
         return arr;
+        // return m_ScoresFile;
     }
 }
